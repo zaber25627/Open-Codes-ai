@@ -1,0 +1,6 @@
+Firebase is optional in this release.
+To enable Firebase Admin initialization:
+1. Create/download a service account JSON from Firebase Console.
+2. Put the entire JSON as a single-line value in Render Environment variable FIREBASE_SERVICE_ACCOUNT_JSON.
+3. Do not commit the service account JSON file.
+This release only initializes the Admin SDK; Firestore persistence/authentication are not implemented yet.

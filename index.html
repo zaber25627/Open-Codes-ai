@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090d16">
+  <meta name="description" content="LongCat AI Studio - coding assistant and agent workspace">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <title>LongCat AI Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">L</div><div><b>LONGCAT</b><small>AI STUDIO</small></div></div>
+      <button class="new-chat" id="newChat">＋ <span>New workspace</span></button>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active"><span>◈</span> AI Studio</button>
+      <button class="nav-item" id="filesNav"><span>▤</span> Project files <em>soon</em></button>
+      <button class="nav-item" id="historyNav"><span>◷</span> Chat history <em>local</em></button>
+      <div class="side-bottom">
+        <div class="status-line"><span class="status-dot"></span><span id="connectionText">Checking server…</span></div>
+        <div class="user-mini"><div class="avatar">LC</div><div><b>LongCat Workspace</b><small>Personal studio</small></div></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+        <div class="top-title"><span class="mobile-brand">LONGCAT</span><span class="desktop-title">AI Studio</span><span class="live-pill"><i></i> Workspace</span></div>
+        <button class="icon-btn" id="installBtn" title="Install app">⇩</button>
+      </header>
+
+      <section class="workspace">
+        <div class="welcome" id="welcome">
+          <div class="hero-symbol"><div class="hero-ring">L</div><span class="spark spark-one">✦</span><span class="spark spark-two">✧</span></div>
+          <div class="eyebrow">YOUR AI DEVELOPMENT WORKSPACE</div>
+          <h1>Build something<br><span>remarkable.</span></h1>
+          <p>Plan, code, debug and improve your next project with LongCat.</p>
+          <div class="feature-grid">
+            <button class="feature-card" data-prompt="Help me plan and build a modern responsive website. Start with the architecture and complete file structure."><span>◈</span><b>Build a website</b><small>UI, frontend and backend</small></button>
+            <button class="feature-card" data-prompt="Help me create an Android-friendly app. Recommend a practical architecture and generate the first complete files."><span>▣</span><b>Create an app</b><small>Mobile-first development</small></button>
+            <button class="feature-card" data-prompt="Help me build a Telegram bot or Telegram Mini App. Give me a complete architecture and implementation plan."><span>✳</span><b>Telegram project</b><small>Bots and Mini Apps</small></button>
+            <button class="feature-card" data-prompt="Review this code for bugs, security issues and improvements. Ask me to paste the code or upload the relevant file."><span>⌘</span><b>Fix a bug</b><small>Review and debugging</small></button>
+          </div>
+        </div>
+
+        <div class="chat-area" id="chatArea" aria-live="polite"></div>
+
+        <div class="composer-wrap">
+          <div class="settings-row">
+            <div class="mode-switch" role="group" aria-label="Mode">
+              <button class="mode active" data-mode="assistant">✧ Assistant</button>
+              <button class="mode" data-mode="agent">◈ Agent mode</button>
+            </div>
+            <select id="provider" aria-label="AI provider">
+              <option value="openai">OpenAI</option>
+              <option value="longcat">LongCat API</option>
+            </select>
+            <select id="projectType" aria-label="Project type">
+              <option value="general software">General</option>
+              <option value="website">Website</option>
+              <option value="Android or mobile app">Mobile app</option>
+              <option value="Telegram bot or Mini App">Telegram</option>
+              <option value="backend and API">Backend / API</option>
+              <option value="Firebase project">Firebase</option>
+            </select>
+          </div>
+          <div class="composer">
+            <textarea id="prompt" rows="1" placeholder="Describe what you want to build…"></textarea>
+            <div class="composer-bottom"><span class="hint">Enter to send · Shift + Enter for new line</span><button id="sendBtn" class="send-btn" aria-label="Send">↑</button></div>
+          </div>
+          <div class="disclaimer">LongCat can make mistakes. Review generated code before using it in production.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "longcat-ai-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LongCat AI Studio - mobile-first AI coding assistant and agent workspace",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0"
+  },
+  "optionalDependencies": {
+    "firebase-admin": "^13.0.2"
+  }
+}

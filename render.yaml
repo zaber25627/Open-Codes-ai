@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: longcat-ai-studio
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: LONGCAT_BASE_URL
+        sync: false
+      - key: LONGCAT_MODEL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: LONGCAT_API_KEY
+        sync: false
+      - key: FIREBASE_SERVICE_ACCOUNT_JSON
+        sync: false
